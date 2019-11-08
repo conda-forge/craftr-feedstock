@@ -1,25 +1,21 @@
-{% set name = "craftr" %}
 {% set version = "2.0.0.dev5" %}
-{% set sha256 = "39028c3ca3cb8cc7598d62970b19c235c050e3a483dd10fbc6d2d95b4fe5acce" %}
 
 package:
-  name: {{ name|lower }}
+  name: craftr
   version: {{ version }}
 
 source:
-  fn: {{ name }}-{{ version }}.tar.gz
-  url: https://github.com/craftr-build/craftr/archive/v2.0.0.dev5.tar.gz
-  sha256: {{ sha256 }}
+  url: https://github.com/craftr-build/craftr/archive/v{{ version }}.tar.gz
+  sha256: 39028c3ca3cb8cc7598d62970b19c235c050e3a483dd10fbc6d2d95b4fe5acce
 
 build:
-  script: python setup.py install --single-version-externally-managed --record record.txt
   number: 0
+  script: "{{ PYTHON }} -m pip install . --no-deps -vv"
   skip: True  # [py2k or py36]
 
 requirements:
   build:
     - python
-    - setuptools
     - pip
   run:
     - python
