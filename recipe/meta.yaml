@@ -1,6 +1,6 @@
 {% set name = "craftr" %}
-{% set version = "2.0.0.dev5" %}
-{% set sha256 = "39028c3ca3cb8cc7598d62970b19c235c050e3a483dd10fbc6d2d95b4fe5acce" %}
+{% set version = "2.0.0" %}
+{% set sha256 = "01ff3e2291c72f918186e3551bede6dcfdc8ce5ed91c25bbbf218835b3a1b8d0" %}
 
 package:
   name: {{ name|lower }}
@@ -14,7 +14,7 @@ source:
 build:
   script: python setup.py install --single-version-externally-managed --record record.txt
   number: 0
-  skip: True  # [py2k or py36]
+  skip: true  # [py2k or py36]
 
 requirements:
   build:
@@ -42,7 +42,7 @@ about:
   license: GPL-3.0
   license_family: GPL
   license_file: LICENSE.txt
-  summary: 'Meta build system based on Ninja and Python'
+  summary: Meta build system based on Ninja and Python
   description: |
     Craftr is a next generation build system based on Ninja and Python that
     features modular and cross-platform build definitions at the flexibility of a
